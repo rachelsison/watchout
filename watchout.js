@@ -75,6 +75,7 @@ var checkCollision = function(circle){
   var distance = Math.sqrt(Math.pow(xDiff, 2) + Math.pow( yDiff, 2))
   if(distance < radiusSum){
     resetScore();
+    break;
   }
 }
 
