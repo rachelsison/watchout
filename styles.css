@@ -1,5 +1,18 @@
 /* your beautiful css styling goes here! */
+svg {
+  background-color: black;
+  margin-left: 500px;
 
-/* Note: an asteroid image is included in this repo. 
+
+}
+body {
+  background-color: black;
+
+}
+div{
+  color: white;
+}
+
+/* Note: an asteroid image is included in this repo.
 Feel free to use it if you like. */
 
