@@ -40,8 +40,29 @@ var populateBoard = function(){
   }
 }
 
+var randArr = function (){
+  var randArray = [];
+  for (i=0; i<20; i++) {
+    randArray.push(rand());
+  }
+  return randArray;
+}
+
 populateBoard();
 
+var changeLocation = function(){
+  var locations = [];
+  for (var i=0; i<20; i++) {
+    locations.push({"cx":rand(),"cy":rand()})
+  }
+  svg.selectAll("circle").data(locations).transition().duration(1900).attr("cx", function(d) {
+    return d.cx;
+  }).attr("cy", function(d) {
+    return d.cy;
+  })
+}
+
+setInterval(changeLocation, 3000);
 
 // var svg = d3.select("body").append("svg")
 //     .attr("width", 100)
