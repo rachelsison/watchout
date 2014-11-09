@@ -22,7 +22,7 @@ svg.append("ellipse")
 ;
 
 var player = d3.select("body svg ellipse");
-//console.log(player.attr('cx'));
+
 
 var rand = function(){
   return Math.floor(Math.random() * 500 );
@@ -36,8 +36,7 @@ var populateBoard = function(){
 .attr("cy", fx)
 .attr("r", 15)
 .attr("class", "false")
-.style("fill", "purple");
-
+.style("fill", "url(#svg_1)");
   }
 }
 
@@ -83,12 +82,6 @@ var checkCollision = function(circle){
 var ourTween = function(locations, self){
 
   var enemy=d3.select(self);
-  // console.log('locations:');
-  // console.log(locations);
-  // console.log('enemy:');
-  // console.log(enemy);
-  // console.log('enemy.attr("cx")');
-  // console.log(enemy.attr("cx") + 10000);
   var currPos = {x:parseFloat(enemy.attr("cx")), y: parseFloat(enemy.attr("cy"))}
   var endPos = {x:locations.cx,y:locations.cy};
   return function(t) {
@@ -98,6 +91,7 @@ var ourTween = function(locations, self){
                y: currPos.y+(endPos.y-currPos.y)*t };
     enemy.attr('cx',nextPos.x)
          .attr('cy',nextPos.y);
+
   }
 }
 
@@ -117,8 +111,7 @@ var changeLocation = function(){
     return ourTween(d, self);
   })
     .attr("cx", function(d) {
-    // console.log("THIS ATTR:")
-    // console.log(this.;
+
 
     return d.cx;
     })
@@ -131,5 +124,3 @@ var changeLocation = function(){
 
 setInterval(changeLocation, 3000);
 setInterval(increaseScore,50);
-
-

@@ -9,9 +9,28 @@ svg {
   margin-right:auto;
 }
 
+.scoreboard {
+
+}
+
 body {
   background-color: black;
+  font-family: 'Droid Sans', sans-serif;
+  font-size: 200%;
+}
 
+circle {
+  animation-duration: 3s;
+  animation-name: rotationTest;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rotationTest {
+ -webkit-transform: rotate(360deg);
+ -webkit-animation-name:rotate;
+ -webkit-animation-duration: 0.5s;
+ -webkit-animation-iteration-count: infinite;
+ -webkit-animation-timing-function: linear;
 }
 
 div{
