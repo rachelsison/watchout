@@ -35,6 +35,7 @@ var populateBoard = function(){
 .attr("cx", px)
 .attr("cy", fx)
 .attr("r", 15)
+.attr("class", "false")
 .style("fill", "purple");
 
   }
@@ -73,9 +74,9 @@ var checkCollision = function(circle){
   var yDiff = parseFloat(circle.attr('cy')) - parseFloat(player.attr('cy'));
 
   var distance = Math.sqrt(Math.pow(xDiff, 2) + Math.pow( yDiff, 2))
-  if(distance < radiusSum){
+  if(distance < radiusSum && circle.attr('class') === 'false'){
     resetScore();
-    break;
+    circle.attr('class', 'true');
   }
 }
 
@@ -124,6 +125,7 @@ var changeLocation = function(){
     .attr("cy", function(d) {
     return d.cy;
     })
+    .attr("class", "false")
 
 }
 
